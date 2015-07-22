@@ -13,11 +13,20 @@
             </tr>
           </thead>
           <tbody>
-        {% for taco in tacos %}
-            <tr>
-              {{ taco.protein }}, {{ taco.shell }}, {{ taco.cheese }}, {{ taco.extras }}
-            </tr>
-        {% endfor %}
+            {% for taco in tacos %}
+                <tr>
+                  <td>{{ taco.protein }}</td>
+                    <td>
+                        {% if taco.cheese == True %}
+                            &#10004;
+                        {% else %}
+                            &#x2717;
+                        {% endif %}
+                    </td>
+                    <td>{{ taco.shell }}</td>
+                    <td>{{ taco.extras }}</td>
+                </tr>
+            {% endfor %}
           </tbody>
         </table>
     {% else %}

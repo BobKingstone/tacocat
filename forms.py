@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, TextAreaField, SelectField
+from wtforms import StringField, PasswordField, TextAreaField, BooleanField
 from wtforms.validators import (DataRequired, Regexp, ValidationError, Email,
                                 Length, EqualTo)
 
@@ -34,7 +34,7 @@ class RegisterForm(Form):
 class TacoForm(Form):
     protein = StringField('Protein', validators=[DataRequired()])
     shell = StringField('Shell', validators=[DataRequired()])
-    cheese = StringField('Cheese')
+    cheese = BooleanField(label='Cheese')
     extras = TextAreaField('Extras')
 
 class LoginForm(Form):
